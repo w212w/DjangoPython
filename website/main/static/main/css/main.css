@@ -60,6 +60,8 @@ main .features p {
     max-width: 400px;
     margin: 20px auto;}
 
+
+
 .alert-warning {
     float: left;
     clear: both;
@@ -74,4 +76,5 @@ form {
 
 
 }
+
 
