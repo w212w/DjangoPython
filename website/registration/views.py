@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import login, logout
 
@@ -19,10 +18,7 @@ def login_view(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            messages.success(request, 'Вы успешно авторизованы.')
             return redirect('home')
-        else:
-            messages.error(request, 'Ошибка авторизации. Пожалуйста, проверьте свои учетные данные.')
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})

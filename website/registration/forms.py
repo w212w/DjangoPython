@@ -21,9 +21,8 @@ class LoginForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Настройка полей формы, если необходимо
-        # ...
+
 
     def clean(self):
         cleaned_data = super().clean()
-        # Проверка и валидация данных, если необходимо
+
