@@ -1,7 +1,10 @@
 from django.shortcuts import render
 
 def index(request):
-    data = {"title": "Главная страница",}
+    data = {"title": "Главная страница",
+            "values": ["Наука и инновации", "Медиа", "Университет", "Поступающим", "Обучающимся"]
+            }
+
     return render(request, "main/index.html",data)
 
 def about(request):
@@ -9,4 +12,9 @@ def about(request):
 
 
 def contacts(request):
-    return render(request, "main/contacts.html")
+    data = {
+        "title": "Контакты",
+        "values": ["+7 (499) 263-65-41", "bauman@bmstu.ru", "105005, Москва, 2-я Бауманская ул., д. 5, корп. 1", "ПН-СБ 08:00–22:00"]
+            }
+
+    return render(request, "main/contacts.html", data)

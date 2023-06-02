@@ -5,31 +5,16 @@
 {% block content %}
     <div class="features">
         <h1>{{ title }}</h1>
-        <p> МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGG
-        МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGG
-        МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGG
-        МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGGМЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGGvv
-            МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGG
-            МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGGМЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGGМЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGGv
-            МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGG
-            МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGG
-            МЕНЯЮ НАЗВАНИЕ В ТЕКСТЕ t gt g t gGGGGGGGGGG
+        <p> На данном сайте вы можете узнать о жизни ведущего технического университета Москвы - государтсвенного технического университета имени Н. Э. Баумана.<br>
+           <b><h4>Новости представлены по таким разделам как:</h4></b>
 
+                {% for el in values %}
+                    <p><i class="fa-solid fa-angles-right fa-beat-fade"></i>  {{ el }}</p>
+                {% endfor %}
+
+        <a href="{% url 'about' %}"><button class="btn btn-primary">Про нас</button>
 
         </p>
-        <button class="btn btn-primary">На страницу про нас</button>
-
-        {% for el in values %}
-            {% if el == "hello" %}
-
-                <p>{{ el| upper }}</p>
-
-            {% endif %}
-        {%endfor%}
-
-        {% for el in obj %}
-            <p>{{ el }}</p>
-        {%endfor%}
 
     </div>
 {% endblock %}

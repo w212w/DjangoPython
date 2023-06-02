@@ -1,11 +1,14 @@
 {% extends "main/layout.html" %}
 
-{% block title %}Контакты{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <div class="features">
-        <h1>Контакты</h1>
-        <p> КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ</p>
-        <button class="btn btn-primary">Просто кнопка</button>
+    <div class="features2">
+        <h1>{{title}}</h1><br>
+                            <p><i class="fa-solid fa-address-book fa-beat fa-lg"></i> {{ values.0 }}</p>
+                            <p><i class="fa-solid fa-envelope fa-beat fa-lg"></i> {{ values.1 }}</p>
+                            <p><i class="fa-solid fa-location-dot fa-beat fa-lg"></i> {{ values.2 }}</p>
+                            <p><i class="fa-solid fa-clock fa-beat fa-lg"></i> {{ values.3 }}</p>
+        <br><a href="{% url 'home' %}"><button class="btn btn-primary">Главная</button>
     </div>
 {% endblock %}

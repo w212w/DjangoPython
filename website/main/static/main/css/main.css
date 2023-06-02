@@ -8,7 +8,8 @@ aside {
     height: 100vh;
     color: #fff;
     float: left;
-    border-right: 7px solid #4d4d4d
+    border-right: 7px solid #4d4d4d;
+
 
 }
 
@@ -33,6 +34,7 @@ aside h3 {
 
 aside ul {list-style: none}
 aside ul li {
+    text-decoration: none;
     color: #fff;
     display: block;
     margin-top: 20px;
@@ -79,4 +81,13 @@ main .registration-container {
   color: #fff;
 }
 
+
+main .features2 {
+    float: left;
+    color: #fff;
+    margin-top: 180px;
+    text-align: center;
+    width: 70%;
+
+}
 
