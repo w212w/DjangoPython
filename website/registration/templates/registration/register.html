@@ -1,0 +1,17 @@
+
+
+<!-- register.html -->
+
+{% extends "main/layout.html" %}
+
+{% block content %}
+    <div class="features">
+        <h2>Регистрация</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit">Регистрация</button>
+        </form>
+    </div>
+{% endblock %}

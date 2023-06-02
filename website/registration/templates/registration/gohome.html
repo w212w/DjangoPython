@@ -1,0 +1,7 @@
+<!-- gohome.html -->
+
+{% extends "main/layout.html" %}
+{% block content %}
+  <h2>Welcome, {{ user.username }}!</h2>
+  <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}
