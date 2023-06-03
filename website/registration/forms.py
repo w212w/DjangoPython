@@ -17,12 +17,12 @@ class RegistrationForm(UserCreationForm):
         return user
 
 class LoginForm(AuthenticationForm):
-
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        self.fields['username'].required = True  # Оставляем поле логина обязательным
+        self.fields['password'].required = True  # Оставляем поле пароля обязательным
+        self.fields['username'].widget.attrs['autofocus'] = True  # Устанавливаем фокус на поле логина
 
     def clean(self):
         cleaned_data = super().clean()
-
+        return cleaned_data

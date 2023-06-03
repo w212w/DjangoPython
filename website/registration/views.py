@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import login, logout
-
+from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
@@ -19,6 +19,8 @@ def login_view(request):
         if form.is_valid():
             login(request, form.get_user())
             return redirect('home')
+        else:
+            messages.error(request, 'Вы не прошли авторизацию')
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
