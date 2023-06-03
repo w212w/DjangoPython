@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect
+from .forms import RegistrationForm, LoginForm
 from django.contrib.auth import login, logout
 from django.contrib import messages
-from .forms import RegistrationForm, LoginForm
 
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Регистрация прошла успешно!')
             return redirect('login')
     else:
         form = RegistrationForm()
@@ -16,13 +15,12 @@ def register(request):
 
 def login_view(request):
     if request.method == 'POST':
-        form = LoginForm(request, data=request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
-            user = form.get_user()
-            login(request, user)
+            login(request, form.get_user())
             return redirect('home')
         else:
-            messages.error(request, 'Ошибка авторизации. Проверьте введенные данные.')
+            messages.error(request, 'Вы не прошли авторизацию')
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
@@ -30,3 +28,4 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('home')
+
