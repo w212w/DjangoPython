@@ -1,0 +1,11 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Ошибка 404{% endblock %}
+
+{% block content %}
+    <div class="features2">
+        <h1>Ошибка 404</h1><br>
+        <p>Данная страница не найдена. Вы можете вернуться на главную страницу</p>
+        <br><a href="{% url 'home' %}"><button class="btn btn-primary">Главная</button></a>
+    </div>
+{% endblock %}
