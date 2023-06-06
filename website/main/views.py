@@ -1,4 +1,9 @@
+
 from django.shortcuts import render
+
+
+def pageNotFound(request, exception):
+    return render(request, 'main/404.html')
 
 def index(request):
     data = {"title": "Главная страница",
