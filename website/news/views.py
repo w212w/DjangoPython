@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
 from django.views.generic import DetailView, UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
+
 
 def news_home(request):
     news = Articles.objects.order_by("-date")
@@ -14,19 +18,21 @@ class NewsDetailView(DetailView):
     context_object_name = "article"
 
 
-class NewsUpdateView(UpdateView):
+
+class NewsUpdateView(LoginRequiredMixin, UpdateView):
     model = Articles
     template_name = "news/create.html"
-
     form_class = ArticlesForm
+    login_url = 'login'
 
 
-class NewsDeleteView(DeleteView):
+class NewsDeleteView(LoginRequiredMixin, DeleteView):
     model = Articles
     success_url = "/news/"
     template_name = "news/news-delete.html"
+    login_url = 'login'
 
-
+@login_required(login_url='login')
 def create(request):
     error = ''
     if request.method == "POST":
